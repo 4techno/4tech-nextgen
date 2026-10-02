@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #050608;
+    --card-dark: rgba(10, 11, 15, 0.88);
+    --border-dim: rgba(255, 255, 255, 0.07);
+    --accent-red: #ff3b55;
+    --accent-gold: #c89f68;
+    --accent-light-gold: #f2dec4;
+    --accent-bronze: #9d6e46;
+  }
+
+  body {
+    background-color: #050608;
+    color: #f4f4f7;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+  }
+
+  /* Custom dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050608;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232530;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c89f68;
+  }
+}
+
+/* Authentic Analog Film Grain Texture Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Typography Helpers */
+.font-luxury {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-display {
+  font-family: "Cinzel", "Plus Jakarta Sans", serif;
+}
+
+.font-mono-code {
+  font-family: "Fira Code", monospace;
+}
+
+/* Metallic Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f5ede3 35%, #c89f68 70%, #9d6e46 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-silver-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism & High-End Materiality */
+.glass-card {
+  background: rgba(10, 11, 16, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 12px 36px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-luxury {
+  background: radial-gradient(circle at top left, rgba(200, 159, 104, 0.07), transparent 60%), rgba(8, 9, 14, 0.88);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(200, 159, 104, 0.22);
+  box-shadow: inset 0 1px 0 0 rgba(200, 159, 104, 0.25), 0 20px 48px -12px rgba(0, 0, 0, 0.65);
+}
+
+.glass-card-luxury:hover {
+  border-color: rgba(200, 159, 104, 0.45);
+  box-shadow: inset 0 1px 0 0 rgba(200, 159, 104, 0.35), 0 24px 56px -12px rgba(200, 159, 104, 0.12);
+}
+
+.grid-blueprint {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Organic rotating stroke animations matching Symphony of Vines */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wave-bar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
+  transform-origin: center;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 18s linear infinite;
+  transform-origin: center;
+}
+
+.audio-bar {
+  animation: wave-bar 1.2s ease-in-out infinite;
+}
+.audio-bar:nth-child(2) { animation-delay: 0.15s; }
+.audio-bar:nth-child(3) { animation-delay: 0.3s; }
+.audio-bar:nth-child(4) { animation-delay: 0.45s; }
+.audio-bar:nth-child(5) { animation-delay: 0.2s; }
